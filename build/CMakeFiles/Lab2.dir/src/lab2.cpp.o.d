@@ -299,4 +299,9 @@ CMakeFiles/Lab2.dir/src/lab2.cpp.o: /home/vboxuser/lab2/src/lab2.cpp \
  /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
- /usr/include/c++/11/pstl/glue_numeric_defs.h
+ /usr/include/c++/11/pstl/glue_numeric_defs.h \
+ /home/vboxuser/lab2/src/world.h /usr/include/c++/11/iostream \
+ /usr/include/c++/11/istream /usr/include/c++/11/bits/istream.tcc \
+ /home/vboxuser/lab2/src/entity.h /home/vboxuser/lab2/src/enemyFactory.h \
+ /home/vboxuser/lab2/src/enemy.h /home/vboxuser/lab2/src/slowEnemy.h \
+ /home/vboxuser/lab2/src/fastEnemy.h /home/vboxuser/lab2/src/ship.h

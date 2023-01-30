@@ -5,35 +5,37 @@
 #pragma once
 
 #include <iostream>
-#include "enemy.h"
-#include "ship.h" //ToDo --> do I need to include these actually? 
+#include <SFML/Graphics.hpp>
+#include "rand.h"
 
 class Entity
 {
 public:
-	Entity() : x(0), y(0) {};
-	virtual ~Entity(){};
-	virtual void update() = 0; 
+    Entity() : x(0), y(0) {};
+    virtual ~Entity() {};
+    //updates entities - virtual so can be re-defined/overidden by subclass
+    virtual void update() = 0; //actual updating happens in subclasses
+    virtual void render() = 0; //actual rendering happens in subclasses 
 
-	double x() const 
-	{ 
-		return x; 
-	}
-	double y() const
-	{
-		return y; 
-	}
+    double getX() const
+    {
+        return x;
+    }
+    double getY() const
+    {
+        return y;
+    }
 
-	void setX(double u_x) 
-	{
-		x = u_x;
-	}
-	void setY(double u_y)
-	{
-		y = u_y;
-	}
+    void setX(double u_x) //subclasses use to set their x coordinate 
+    {
+        x = u_x;
+    }
+    void setY(double u_y) //subclasses use to set their y coordinats 
+    {
+        y = u_y;
+    }
 
 private:
-	double x;
-	double y; 
-}
+    double x;
+    double y;
+};

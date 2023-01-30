@@ -1,6 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include "rand.h"
+#include "world.h"
 
+
+// FIXME - moved to entity class 
 void render(sf::RenderWindow & window, const std::vector<sf::CircleShape> & shapes) {
   // always clear!
   window.clear();
@@ -22,7 +25,7 @@ void processEvents(sf::RenderWindow & window, std::vector<sf::CircleShape> & sha
     }
   }
 }
-
+// FIXME - moved to entity class 
 void update(sf::Time dt, std::vector<sf::CircleShape> & shapes) {
   float s = dt.asSeconds();
   for (auto & shape : shapes) {

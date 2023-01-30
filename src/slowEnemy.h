@@ -12,4 +12,4 @@ class SlowEnemy : public Enemy
 	public:
 
 	private:
-}
+};
