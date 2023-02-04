@@ -1,4 +1,4 @@
-//Emily Robey 
+//Emily Robey
 //
 //EnemyFactory class
 
@@ -9,29 +9,24 @@
 #include "slowEnemy.h"
 #include "fastEnemy.h"
 
+using std::endl;
+using std::cout;
+
 class EnemyFactory
 {
-	public:
-		EnemyFactory(){}; 
-		~EnemyFactory(){}; 
-
-		Enemy *makeEnemy()
-		{
-			SlowEnemy *slow;
-			FastEnemy *fast; 
-			//randomly choose 
-			int random = rand() % 2 + 1; 
-			if(random == 1)
-			{
-				randEnemy = slow; 
-			}
-			else
-			{
-				randEnemy = fast; 
-			}
-
-			return randEnemy; 
-		}
-	private:
-		Enemy *randEnemy; 
+public:
+    static Enemy *makeEnemy()
+    {
+        //randomly choose
+        int random = rand() % 2;
+        if(random == 1)
+        {
+            return new SlowEnemy(); //make new space in memory and return a slowEnemy
+        }
+        else
+        {
+            return new FastEnemy(); //make new space in memory and return a fastEnemy
+        }
+    }
+private:
 };

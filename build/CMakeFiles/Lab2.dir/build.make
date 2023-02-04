@@ -92,9 +92,9 @@ Lab2_EXTERNAL_OBJECTS =
 
 Lab2: CMakeFiles/Lab2.dir/src/lab2.cpp.o
 Lab2: CMakeFiles/Lab2.dir/build.make
-Lab2: _deps/sfml-build/lib/libsfml-graphics.so.2.5.1
-Lab2: _deps/sfml-build/lib/libsfml-window.so.2.5.1
-Lab2: _deps/sfml-build/lib/libsfml-system.so.2.5.1
+Lab2: _deps/sfml-build/lib/libsfml-graphics-d.so.2.5.1
+Lab2: _deps/sfml-build/lib/libsfml-window-d.so.2.5.1
+Lab2: _deps/sfml-build/lib/libsfml-system-d.so.2.5.1
 Lab2: CMakeFiles/Lab2.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vboxuser/lab2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Lab2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Lab2.dir/link.txt --verbose=$(VERBOSE)

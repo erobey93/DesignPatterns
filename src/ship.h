@@ -1,40 +1,55 @@
 //Emily Robey
-//
+//CST 276 - WI 23 - Lab 2
 //Ship class
+
 #pragma once
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "entity.h"
 
+using std::endl;
+using std::cout;
+
 class Ship : public Entity
 {
 public:
 
-    Ship();
-    ~Ship(); 
-    void update()
+    Ship(int delay, float x, float y) : frame(0), delay(delay) {
+        setPosition(x, y);
+    }
+    virtual void update(float dt, const float wWidth) override
     {
-        float s = dt.asSeconds();
-
-        //so just move one "entity"  now, since our list of entities is in world?
-        shape.move(getX() * s, getY() * s);
+        if(++frame == delay)
+        {
+            shoot();
+            //reset timer
+            frame = 0;
+        }
+        //x + 50 * dt, y + 50 * dt;
 
     }
-    void render(sf::RenderWindow &window) //not sure if I should be taking in the window from main still? 
+
+    void render(sf::RenderTarget &target, sf::RenderStates states) const
     {
-        // always clear!
-        window.clear();
-
-        // drawing happens here (off-screen)
-        window.draw(shape);
-
-        // swap the display buffer (double-buffering)
-        window.display();
-
+        sf::RectangleShape shape(sf::Vector2f(50,50));//set initial position(which should change for ships
+        shape.setFillColor(sf::Color::Red); //set color
+        shape.setPosition(x, y);//set position
+        target.draw(shape); //draw ship
     }
-    //I'm confused why the subclasses would have their own updates and renders? I'm generally confused about how all of this is working...
+    void setPosition(float uX, float uY)
+    {
+        x = uX;
+        y = uY;
+
+    }//TODO --> add in velocity and eventListener for right and left keys
+
+    void shoot()
+    {
+        cout << "SHOOT FIXME" << endl;
+    }
+
 private:
-    sf::CircleShape shape;// change to triangle shape 
-    sf::Time dt;
+    int frame;
+    int delay;
 };

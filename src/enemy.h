@@ -1,45 +1,40 @@
 //Emily Robey
-//
+//CST 276 - WI 23 - Lab 2
 //Enemy class
-//
 
-#pragma once 
+#pragma once
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "entity.h"
+using std::string;
+using std::cout;
+using std::endl;
 
 class Enemy : public Entity
 {
 public:
-    
+
     Enemy() {};
-    ~Enemy(){}; 
-    virtual void update()
-    {
-        float s = dt.asSeconds();
+    virtual void update(float dt, const float wWidth) override = 0;
 
-        //so just move one "entity"  now, since our list of entities is in world?
-        shape.move(getX() * s, getY() * s);//need to set x and y though...
+    virtual void render(sf::RenderTarget &target, sf::RenderStates states) const override
+    {
+        sf::CircleShape shape(200.f);
+        shape.setFillColor(sf::Color::Red);
+        shape.setPosition(x, y);
+        target.draw(shape);
 
     }
-    void render(sf::RenderWindow &window) //not sure if I should be taking in the window from main still?
+    virtual void updateVelocity(float uVX, float uVY)
     {
-        // always clear!
-        window.clear();
-
-        // drawing happens here (off-screen)
-        window.draw(shape);
-
-        // swap the display buffer (double-buffering)
-        window.display();
-
+        vX = vX + uVX;
+        vY = vY + uVY;
     }
 
-private:
-    sf::CircleShape shape;// change to triangle shape
-    sf::Time dt;
+protected:
 
-
+    float vX = 0.f;
+    float vY = 0.f;
 
 };

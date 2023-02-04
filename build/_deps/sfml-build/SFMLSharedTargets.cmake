@@ -142,39 +142,39 @@ set_target_properties(sfml-audio PROPERTIES
   INTERFACE_LINK_LIBRARIES "sfml-system"
 )
 
-# Import target "sfml-system" for configuration "Release"
-set_property(TARGET sfml-system APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+# Import target "sfml-system" for configuration "Debug"
+set_property(TARGET sfml-system APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(sfml-system PROPERTIES
-  IMPORTED_LOCATION_RELEASE "/home/vboxuser/lab2/build/_deps/sfml-build/lib/libsfml-system.so.2.5.1"
-  IMPORTED_SONAME_RELEASE "libsfml-system.so.2.5"
+  IMPORTED_LOCATION_DEBUG "/home/vboxuser/lab2/build/_deps/sfml-build/lib/libsfml-system-d.so.2.5.1"
+  IMPORTED_SONAME_DEBUG "libsfml-system-d.so.2.5"
   )
 
-# Import target "sfml-window" for configuration "Release"
-set_property(TARGET sfml-window APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+# Import target "sfml-window" for configuration "Debug"
+set_property(TARGET sfml-window APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(sfml-window PROPERTIES
-  IMPORTED_LOCATION_RELEASE "/home/vboxuser/lab2/build/_deps/sfml-build/lib/libsfml-window.so.2.5.1"
-  IMPORTED_SONAME_RELEASE "libsfml-window.so.2.5"
+  IMPORTED_LOCATION_DEBUG "/home/vboxuser/lab2/build/_deps/sfml-build/lib/libsfml-window-d.so.2.5.1"
+  IMPORTED_SONAME_DEBUG "libsfml-window-d.so.2.5"
   )
 
-# Import target "sfml-network" for configuration "Release"
-set_property(TARGET sfml-network APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+# Import target "sfml-network" for configuration "Debug"
+set_property(TARGET sfml-network APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(sfml-network PROPERTIES
-  IMPORTED_LOCATION_RELEASE "/home/vboxuser/lab2/build/_deps/sfml-build/lib/libsfml-network.so.2.5.1"
-  IMPORTED_SONAME_RELEASE "libsfml-network.so.2.5"
+  IMPORTED_LOCATION_DEBUG "/home/vboxuser/lab2/build/_deps/sfml-build/lib/libsfml-network-d.so.2.5.1"
+  IMPORTED_SONAME_DEBUG "libsfml-network-d.so.2.5"
   )
 
-# Import target "sfml-graphics" for configuration "Release"
-set_property(TARGET sfml-graphics APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+# Import target "sfml-graphics" for configuration "Debug"
+set_property(TARGET sfml-graphics APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(sfml-graphics PROPERTIES
-  IMPORTED_LOCATION_RELEASE "/home/vboxuser/lab2/build/_deps/sfml-build/lib/libsfml-graphics.so.2.5.1"
-  IMPORTED_SONAME_RELEASE "libsfml-graphics.so.2.5"
+  IMPORTED_LOCATION_DEBUG "/home/vboxuser/lab2/build/_deps/sfml-build/lib/libsfml-graphics-d.so.2.5.1"
+  IMPORTED_SONAME_DEBUG "libsfml-graphics-d.so.2.5"
   )
 
-# Import target "sfml-audio" for configuration "Release"
-set_property(TARGET sfml-audio APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+# Import target "sfml-audio" for configuration "Debug"
+set_property(TARGET sfml-audio APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(sfml-audio PROPERTIES
-  IMPORTED_LOCATION_RELEASE "/home/vboxuser/lab2/build/_deps/sfml-build/lib/libsfml-audio.so.2.5.1"
-  IMPORTED_SONAME_RELEASE "libsfml-audio.so.2.5"
+  IMPORTED_LOCATION_DEBUG "/home/vboxuser/lab2/build/_deps/sfml-build/lib/libsfml-audio-d.so.2.5.1"
+  IMPORTED_SONAME_DEBUG "libsfml-audio-d.so.2.5"
   )
 
 # This file does not depend on other imported targets which have

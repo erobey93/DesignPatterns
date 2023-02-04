@@ -1,5 +1,5 @@
 //Emily Robey
-//Lab 2 - CST 276 - WI 23
+//CST 276 - WI 23 - Lab 2
 //World Class
 
 #pragma once
@@ -7,52 +7,74 @@
 #include <iostream>
 #include "entity.h"
 #include "enemyFactory.h"
-#include "ship.h" 
+#include "enemy.h"
+#include "ship.h"
+#include "string"
+
+using std::string;
 
 class World
 {
 public:
     World() : numEntities(0) {}
-    void createEnemies() 
+    ~World() {};
+
+    void addEntity(Entity *entity)
     {
-        entities[numEntities] = randEnemy -> makeEnemy(); //set appropriate Entity element to randEnemy which creates a new enemy in the list/array
-        //if we do this though, what will "ship" or any non-enemy entities do with this function? I'm confused about this...
-	numEntities ++;
+        entities.push_back(entity);
+        numEntities++;
     }
-    void createShip()
+    void collision(sf::Shape &shape1, sf::Shape &shape2)
     {
-	entities[numEntities] = aShip; 
-	numEntities++; 
-    }
-    void gameLoop()
-    {
-	    while (true)
-	    {
-		    //handle user input
-		    
-		    //update each entity
-		    for(int i = 0; i < numEntities; i++)
-		    {
-			    entities[i] -> update(); 
-		    }
-	    }
-    }
-    //should this be in here? maybe not? 
-    void processEvents(sf::RenderWindow & window, std::vector<sf::CircleShape> & shapes) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
+        sf::FloatRect bounds1 = shape1.getGlobalBounds();
+        sf::FloatRect bounds2 = shape2.getGlobalBounds();
+
+        if(bounds1.intersects(bounds2))
+        {
+            cout << "intersection" << endl;
         }
+        //get centers and radii of the two shapes
+        //determine the distance between the centers
+        //check if the shapes are intersecting
+        //calc collision response
+        //update velocities of two shapes
+        //so I need an update velocity function probably
+    }
+    void update(float dt, const float wWidth)
+    {
+        for(auto& entity : entities)
+        {
+            //collision(entities(i), entities(i + 1)); //not exactly but lets see FIXME
+            entity -> update( dt, wWidth);
+
+        }
+//if(play.getGlobalBounds().intersects(shape.getGlobalBounds()))//check for an intersection
+
+    }
+    //RenderTarget = abstract base class that represents a target to draw graphics to
+    //could be RenderWindow, RenderTexture, etc
+    //RenderStates defines how the object should be drawn (position, rotation, scale)
+    //often use sf::RenderStates::Default, but can set by creating a RenderStates object and doing .blendMode = sf::BlendAdd, or a number of other state specsin SFML library
+    void render(sf::RenderTarget& target, sf::RenderStates states) const
+    {
+        for(const auto& entity : entities)
+        {
+            entity->render(target,states);
+        }
+
+    }
+
+    int getNumEntities()
+    {
+        return numEntities;
+    }
+    Entity *getElement(int index)
+    {
+        return entities.at(index);
     }
 
 private:
-    const int MAX_ENTITITES = 100; //FIXME change this just to compile for now 
-    Entity *entities[100];//list of entities in game 
     int numEntities;
-    //or should EnemyFactor be down here?
-    EnemyFactory *randEnemy;
-    Ship *aShip; 
+    std::vector<Entity*> entities; //switched to vector
 
 };
