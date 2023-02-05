@@ -17,7 +17,7 @@ public:
     {
         if(patrollingLeft)
         {
-            vX = -10.0f; //move left
+            vX = -5.f; //move left
             x = x + vX;
             if(x == 0)
             {
@@ -26,7 +26,7 @@ public:
         }
         else
         {
-            vX = 10.0f;//move right
+            vX = 5.f;//move right
             x = x + vX;
             if(x == wWidth)
             {

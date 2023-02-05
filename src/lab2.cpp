@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
     sf::RenderWindow window{sf::VideoMode{WINDOW_WIDTH, WINDOW_HEIGHT}, "Lab2"};
 
 
-    for (int i{}; i < 10; ++i) {
+    for (int i{}; i < 2; ++i) {
         newWorld.addEntity(EnemyFactory::makeEnemy());
 
         newWorld.update(i, WINDOW_WIDTH);
@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
     sf::Time dt{sf::seconds(1.0f / 60.0f)}; // delta time (fixed to 60fps)
     while (window.isOpen()) {
 
-        processEvents(window,newWorld);// FIXME don't understand how to use this with world class
+        processEvents(window,newWorld);
         t += clock.restart();
         while (t > dt) {
             t -= dt;

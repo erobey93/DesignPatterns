@@ -20,18 +20,18 @@ public:
         cout << "Slow Enemy updated " << endl;
         if(patrollingLeft)
         {
-            vX = -5.f;//move left
+            vX = -1.f;//move left
             x = x + vX;
             if(x == 0)
             {
-                patrollingLeft = false;
+                patrollingLeft = false; 
             }
         }
         else
         {
-            vX = 5.f; //move right
+            vX = 1.f; //move right
             x = x + vX;
-            if(x > wWidth)
+            if(x == wWidth)
             {
                 patrollingLeft = true;
             }
@@ -40,7 +40,7 @@ public:
 
     virtual void render(sf::RenderTarget& target, sf::RenderStates states) const override
     {
-        sf::CircleShape shape(22.f);
+        sf::CircleShape shape(20.f);
         shape.setFillColor(sf::Color::Green);
         shape.move(x,y);
         target.draw(shape);

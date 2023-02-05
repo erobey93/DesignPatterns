@@ -24,33 +24,45 @@ public:
         entities.push_back(entity);
         numEntities++;
     }
-    void collision(sf::Shape &shape1, sf::Shape &shape2)
+    
+    bool collision(sf::Shape &shape1, sf::Shape &shape2)
     {
+	//get bounds for shapes
         sf::FloatRect bounds1 = shape1.getGlobalBounds();
         sf::FloatRect bounds2 = shape2.getGlobalBounds();
-
+	//check for collision
         if(bounds1.intersects(bounds2))
         {
-            cout << "intersection" << endl;
+		return true;
         }
-        //get centers and radii of the two shapes
-        //determine the distance between the centers
-        //check if the shapes are intersecting
-        //calc collision response
-        //update velocities of two shapes
-        //so I need an update velocity function probably
+	else
+	{
+		return false; 
+	}
     }
     void update(float dt, const float wWidth)
     {
         for(auto& entity : entities)
         {
-            //collision(entities(i), entities(i + 1)); //not exactly but lets see FIXME
             entity -> update( dt, wWidth);
 
         }
-//if(play.getGlobalBounds().intersects(shape.getGlobalBounds()))//check for an intersection
+/* FIXME not sure how to handle collision since an Entitiy isn't a shape..
+ * I could just adjust each new shape's position since they're only moving along the x-axis, but I don't know if that's the best way to go about it. 
+	for(int i = 0; i < entities.size(); i++)
+	{
+		for(int j = (i + 1); j < entities.size(); ++j)
+		{
+			if(collision(entities[i], entities[j]))
+			{
+				//handle collision
+			}
+
+		}
+		}*/
 
     }
+   
     //RenderTarget = abstract base class that represents a target to draw graphics to
     //could be RenderWindow, RenderTexture, etc
     //RenderStates defines how the object should be drawn (position, rotation, scale)
